@@ -1,0 +1,71 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: #fdfdfd;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: flex-start; /* Align to top */
+  min-height: 100vh;
+  padding-top: 2rem; /* Optional spacing from the top */
+}
+
+.fuel-app {
+  width: 100%;
+  max-width: 480px;
+}
+
+
+.fuel-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.fuel-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fuel-table td {
+  padding: 12px 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+}
+
+.fuel-name {
+  font-weight: 500;
+}
+
+.fuel-price.up {
+  color: red;
+}
+
+.fuel-price.down {
+  color: green;
+}
+
+.fuel-price {
+  text-align: right;
+}
+
+.trend-arrow {
+  width: 30px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.trend-arrow.up {
+  color: red;
+}
+
+.trend-arrow.down {
+  color: green;
+}
+
+.updated-time {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #888;
+  font-size: 13px;
+}

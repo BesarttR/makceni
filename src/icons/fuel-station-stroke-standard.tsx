@@ -1,0 +1,13 @@
+import React from "react"; 
+
+const FuelStationIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width={24} height={24} color={"#000000"} fill={"none"} {...props}>
+    <path d="M4 10H16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+    <path d="M4 21V5C4 3.89543 4.89543 3 6 3H14C15.1046 3 16 3.89543 16 5V21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+    <path d="M10 13L8.5 15.5H11.5L10 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+    <path d="M2 21H18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+    <path d="M16 14H19V16.5C19 17.3284 19.6716 18 20.5 18C21.3284 18 22 17.3284 22 16.5V8.99999L20.7764 6.55289C20.607 6.21405 20.2607 6.00004 19.8819 6.0001L19 6.00025" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+  </svg>
+);
+
+export default FuelStationIcon;
