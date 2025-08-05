@@ -224,8 +224,8 @@ body {
   font-weight: bold;
 }
 .store-logo {
-  width: 24px;
-  height: 24px;
+  width: 24px !important;
+  height: 24px!important;
   object-fit: contain;
   margin-right: 8px;
   vertical-align: middle;

@@ -86,8 +86,18 @@ function Ovosje({
               <div className="store-price-header">{t("price_mkd")}</div>
             </div>
             {Object.entries(selectedProduct.prices).map(([store, price]) => (
-              <div key={store} className="store-row">
-                <img src={storeLogos[store]} alt={`${store} logo`} className="store-logo" />
+              <div key={store} className="store-row"><img
+              src={storeLogos[store]}
+              alt={`${store} logo`}
+              style={{
+                width: "24px",
+                height: "24px",
+                objectFit: "contain",
+                marginRight: "8px",
+                verticalAlign: "middle",
+              }}
+            />
+            
                 <div className="store-name">{store}</div>
                 <div className="store-price">{price}</div>
               </div>
