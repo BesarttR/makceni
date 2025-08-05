@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./App.css";
 
-// The component now accepts categoryName and mainTitleIcon props
 function Gorivo({ categoryName, mainTitleIcon: MainTitleIcon }) {
   const { t } = useTranslation();
 
@@ -13,7 +12,6 @@ function Gorivo({ categoryName, mainTitleIcon: MainTitleIcon }) {
   const iconSize = 20;
 
   useEffect(() => {
-    // Fetch fuel prices from the external API
     fetch(
       "https://api.codetabs.com/v1/proxy/?quest=https://gorivo.mk/_flareact/props/index.json"
     )
@@ -89,20 +87,32 @@ function Gorivo({ categoryName, mainTitleIcon: MainTitleIcon }) {
       });
   }, [t]);
 
+  // Force styles to light mode colors
+  const lightTextColor = "#000";
+  const lightBackgroundColor = "#fff";
+
   return (
-    <div className="main-content-columns">
+    <div
+      className="main-content-columns"
+      style={{ backgroundColor: lightBackgroundColor, color: lightTextColor }}
+    >
       <div className="product-list-column">
-        <div className="main-category-title">
+        <div className="main-category-title" style={{ color: lightTextColor }}>
           <MainTitleIcon color={iconColor} width={iconSize} height={iconSize} />
           {categoryName}
         </div>
         <div className="product-list">
           {prices ? (
-            <table className="fuel-table">
+            <table
+              className="fuel-table"
+              style={{ backgroundColor: lightBackgroundColor, color: lightTextColor }}
+            >
               <tbody>
                 {prices.map((fuel, idx) => (
                   <tr key={idx}>
-                    <td className="fuel-name">{fuel.label}</td>
+                    <td className="fuel-name" style={{ color: lightTextColor }}>
+                      {fuel.label}
+                    </td>
                     <td
                       className={`fuel-price ${
                         fuel.trend === "up"
@@ -111,13 +121,14 @@ function Gorivo({ categoryName, mainTitleIcon: MainTitleIcon }) {
                           ? "down"
                           : ""
                       }`}
+                      style={{ color: lightTextColor }}
                     >
                       {fuel.value !== null && fuel.value !== undefined
                         ? fuel.value.toFixed(3)
                         : "-"}{" "}
                       {fuel.unit}
                     </td>
-                    <td className={`trend-arrow ${fuel.trend}`}>
+                    <td className={`trend-arrow ${fuel.trend}`} style={{ color: lightTextColor }}>
                       {fuel.trend === "up" && "↗"}
                       {fuel.trend === "down" && "↘"}
                       {fuel.trend === "same" && "-"}
@@ -127,11 +138,11 @@ function Gorivo({ categoryName, mainTitleIcon: MainTitleIcon }) {
               </tbody>
             </table>
           ) : (
-            <p>{t("loading_prices")}</p>
+            <p style={{ color: lightTextColor }}>{t("loading_prices")}</p>
           )}
 
           {lastUpdated && (
-            <p className="updated-time">
+            <p className="updated-time" style={{ color: lightTextColor }}>
               {t("last_updated")} {new Date(lastUpdated).toLocaleString()}
             </p>
           )}

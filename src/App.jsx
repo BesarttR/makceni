@@ -56,6 +56,7 @@ export default function App() {
   const MainIcon = selectedCategory.mainIcon;
 
   const isMobile = window.innerWidth < 768;
+  const isDarkMode = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
 
   const toggleDropdown = () => setMobileDropdownOpen(!mobileDropdownOpen);
   const toggleLangDropdown = () => setLangDropdownOpen(!langDropdownOpen);
@@ -66,7 +67,6 @@ export default function App() {
     setMobileDropdownOpen(false);
   };
 
-  // Update category names on language change
   useEffect(() => {
     const updatedCategory = categories.find(c => c.component === selectedCategory.component);
     if (updatedCategory && updatedCategory.name !== selectedCategory.name) {
@@ -79,7 +79,6 @@ export default function App() {
     setLangDropdownOpen(false);
   };
 
-  // Language list with flags (rounded)
   const languages = [
     { code: "mk", label: "МK", flag: "mk" },
     { code: "sq", label: "AL", flag: "al" },
@@ -107,7 +106,6 @@ export default function App() {
           style={{ height: 80, width: "auto", objectFit: "contain" }}
         />
 
-        {/* Language selector */}
         {isMobile ? (
           <div style={{ position: "relative", userSelect: "none" }}>
             <div
@@ -118,11 +116,12 @@ export default function App() {
                 borderRadius: 4,
                 padding: "6px 10px",
                 fontWeight: "bold",
-                backgroundColor: "#fff",
+                backgroundColor: "#fff",  // always white
                 userSelect: "none",
                 display: "flex",
                 alignItems: "center",
                 gap: "6px",
+                color: "#000", // always black text
               }}
             >
               <img
@@ -142,7 +141,7 @@ export default function App() {
                   position: "absolute",
                   top: "calc(100% + 5px)",
                   right: 0,
-                  backgroundColor: "#fff",
+                  backgroundColor: "#fff", // always white dropdown bg
                   border: "1px solid #ccc",
                   borderRadius: 4,
                   boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
@@ -161,7 +160,7 @@ export default function App() {
                       alignItems: "center",
                       gap: "8px",
                       backgroundColor: code === i18n.language ? "#007bff" : "transparent",
-                      color: code === i18n.language ? "#fff" : "#000",
+                      color: code === i18n.language ? "#fff" : "#000", // always black text if not selected
                       fontWeight: code === i18n.language ? "bold" : "normal",
                     }}
                   >
@@ -189,8 +188,8 @@ export default function App() {
                   fontWeight: "bold",
                   borderRadius: 4,
                   border: "1px solid #ccc",
-                  backgroundColor: i18n.language === code ? "#007bff" : "#fff",
-                  color: i18n.language === code ? "#fff" : "#000",
+                  backgroundColor: i18n.language === code ? "#007bff" : "#fff", // always white bg
+                  color: i18n.language === code ? "#fff" : "#000", // always black text if not selected
                   cursor: i18n.language === code ? "default" : "pointer",
                   display: "flex",
                   alignItems: "center",
